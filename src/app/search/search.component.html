@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search a city</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label>I'm looking for:</ion-label>
+    <ion-input
+      [(ngModel)]="query"
+      (change)="searchCity()"
+      type="text"
+    ></ion-input>
+    <ion-icon (click)="getCityByGeo()" name="compass"></ion-icon>
+    <ion-label *ngIf="notFound" color="danger">City not found!</ion-label>
+  </ion-item>
+  <ion-list-header *ngIf="searchResults">
+    Results for {{ searchResults.city.name }},
+    {{ searchResults.city.country }}
+  </ion-list-header>
+  <app-list *ngIf="searchResults" [list]="searchResults.list"></app-list>
+</ion-content>

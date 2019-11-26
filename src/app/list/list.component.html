@@ -1,0 +1,11 @@
+<ion-list>
+  <ion-card *ngFor="let element of list">
+    <ion-text>
+      <h2>{{ element.dt_txt | date: "d MMM yyyy H:mm" }}</h2>
+      <h6>Actual temperature: {{ element.main.temp }}</h6>
+      <h6>Max temperature: {{ element.main.temp_max }}</h6>
+      <h6>Min temperature: {{ element.main.temp_min }}</h6>
+      <p>{{ element.weather[0].description | titlecase }}</p>
+    </ion-text>
+  </ion-card>
+</ion-list>
